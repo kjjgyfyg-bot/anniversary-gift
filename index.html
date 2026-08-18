@@ -79,7 +79,6 @@
             border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border: 2px solid #fff;
         }
-        /* جعل الصورة الأخيرة تأخذ العرض كاملاً لشكل أرتب */
         .gallery img:nth-child(7) {
             grid-column: span 2;
         }
@@ -134,21 +133,21 @@
             أنتَ الذي بكلِ نبضٍ في دمي تسكنُ.
         </div>
 
-        <!-- ألبوم الصور (7 صور) -->
+        <!-- ألبوم الصور الـ 7 بالروابط الصحيحة -->
         <div class="gallery">
-            <img src="رابط_صورة_1" alt="ذكريات">
-            <img src="رابط_صورة_2" alt="ذكريات">
-            <img src="رابط_صورة_3" alt="ذكريات">
-            <img src="رابط_صورة_4" alt="ذكريات">
-            <img src="رابط_صورة_5" alt="ذكريات">
-            <img src="رابط_صورة_6" alt="ذكريات">
-            <img src="رابط_صورة_7" alt="ذكريات">
+            <img src="https://raw.githubusercontent.com/kjjgyfyg-bot/anniversary-gift/main/IMG-20260818-WA0018.jpg" alt="ذكريات">
+            <img src="https://raw.githubusercontent.com/kjjgyfyg-bot/anniversary-gift/main/IMG-20260818-WA0019.jpg" alt="ذكريات">
+            <img src="https://raw.githubusercontent.com/kjjgyfyg-bot/anniversary-gift/main/IMG-20260818-WA0020.jpg" alt="ذكريات">
+            <img src="https://raw.githubusercontent.com/kjjgyfyg-bot/anniversary-gift/main/IMG-20260818-WA0021.jpg" alt="ذكريات">
+            <img src="https://raw.githubusercontent.com/kjjgyfyg-bot/anniversary-gift/main/IMG-20260818-WA0023.jpg" alt="ذكريات">
+            <img src="https://raw.githubusercontent.com/kjjgyfyg-bot/anniversary-gift/main/IMG-20260818-WA0024.jpg" alt="ذكريات">
+            <img src="https://raw.githubusercontent.com/kjjgyfyg-bot/anniversary-gift/main/IMG-20260818-WA0025.jpg" alt="ذكريات">
         </div>
     </div>
 
-    <!-- الأغنية -->
+    <!-- الأغنية بالرابط الصحيح -->
     <audio id="bg-music" loop>
-        <source src="https://github.com/kjjgyfyg-bot/anniversary-gift/raw/refs/heads/main/%D8%B3%D8%B1%D9%83%20%D8%A7%D9%8A%D9%87.mp3" type="audio/mp3">
+        <source src="https://raw.githubusercontent.com/kjjgyfyg-bot/anniversary-gift/main/%D8%B3%D8%B1%D9%83%20%D8%A7%D9%8A%D9%87.mp3" type="audio/mp3">
     </audio>
 
     <script>
@@ -165,7 +164,6 @@
             }
         }
 
-        // العداد الزمني التلقائي
         function startCounter() {
             const startDate = new Date('2025-09-18T00:00:00');
             function update() {
@@ -180,7 +178,6 @@
             setInterval(update, 1000 * 60);
         }
 
-        // القلوب المتحركة
         function startHearts() {
             setInterval(() => {
                 const heart = document.createElement('div');
