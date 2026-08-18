@@ -2,261 +2,114 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A gift from Engineer Zainab</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Reem+Kufi:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background: linear-gradient(135deg, #1f0015, #3a0d2d, #581845);
-            color: #fff;
+            background: linear-gradient(135deg, #fff5f7, #ffd1dc);
+            color: #5d001e;
             font-family: 'Cairo', sans-serif;
             min-height: 100vh;
-            overflow-x: hidden;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
         }
         /* شاشة الباسورد */
         #auth-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 2, 10, 0.95);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.5s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff5f7; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 1000;
         }
         .auth-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 105, 180, 0.3);
-            text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 90%;
-            width: 350px;
+            background: #fff; padding: 30px; border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center;
+            border: 1px solid #ffb6c1; width: 320px; max-width: 90%;
         }
-        .auth-box h2 {
-            margin-bottom: 20px;
-            color: #ffb6c1;
-            font-size: 22px;
-        }
+        .auth-box h2 { margin-bottom: 15px; color: #d63384; font-size: 20px; }
         .auth-box input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #ff69b4;
-            background: rgba(0,0,0,0.3);
-            color: #fff;
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 15px;
-            outline: none;
+            width: 100%; padding: 12px; border-radius: 10px;
+            border: 1px solid #ffb6c1; text-align: center;
+            font-size: 16px; margin-bottom: 15px; outline: none;
         }
         .auth-box button {
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            transition: 0.3s;
-        }
-        .auth-box button:hover {
-            opacity: 0.9;
-            transform: scale(1.02);
-        }
-        .error-msg {
-            color: #ff6b6b;
-            margin-top: 10px;
-            font-size: 14px;
-            display: none;
+            background: #ff69b4; color: white; border: none;
+            padding: 10px 20px; border-radius: 10px; font-size: 16px;
+            cursor: pointer; width: 100%; font-weight: bold;
         }
 
-        /* محتوى الموقع الرئيسي */
+        /* المحتوى الرئيسي */
         #main-content {
-            display: none;
-            width: 100%;
-            max-width: 700px;
-            padding: 30px 20px;
-            text-align: center;
-            z-index: 10;
+            display: none; max-width: 600px; width: 100%;
+            text-align: center; z-index: 10; position: relative;
         }
-
-        .header-names {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .header-names .heart {
-            color: #ff3366;
-            animation: pulse 1.5s infinite;
-            display: inline-block;
-        }
-        .daughter-name {
-            font-size: 20px;
-            color: #ffb6c1;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
+        h1 { color: #d63384; margin-bottom: 15px; font-size: 28px; }
 
         /* العداد الزمني */
         .counter-container {
-            background: rgba(255, 255, 255, 0.07);
-            border-radius: 20px;
-            padding: 20px;
-            margin: 25px 0;
-            border: 1px solid rgba(255, 105, 180, 0.2);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px; padding: 20px; margin: 20px 0;
+            border: 1px solid #ffb6c1;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
-        .counter-title {
-            font-size: 16px;
-            color: #ffb6c1;
-            margin-bottom: 15px;
-        }
-        .counter-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
+        .counter-title { font-size: 15px; color: #d63384; margin-bottom: 12px; font-weight: bold; }
+        .counter-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         .time-box {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: #ff69b4; padding: 12px;
+            border-radius: 12px; color: white;
         }
-        .time-box span {
-            display: block;
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff69b4;
-        }
-        .time-box label {
-            font-size: 13px;
-            color: #ccc;
-        }
+        .time-box span { display: block; font-size: 22px; font-weight: bold; }
+        .time-box label { font-size: 13px; }
 
         /* بيت الشعر */
         .poetry-box {
-            background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(0,0,0,0.4));
-            border-right: 4px solid #ff69b4;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 25px 0;
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 18px;
-            line-height: 2;
-            color: #ffe4e1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px; border-radius: 20px;
+            border: 2px solid #ffb6c1; margin: 20px 0;
+            line-height: 2; font-size: 17px; color: #5d001e;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* التوقيع والأزرار الأخيرة */
-        .footer-note {
-            margin-top: 30px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #fff;
+        /* ألبوم الصور (7 صور) */
+        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; }
+        .gallery img {
+            width: 100%; height: 180px; object-fit: cover;
+            border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid #fff;
         }
-        .love-signature {
-            margin-top: 15px;
-            font-size: 22px;
-            color: #ff3366;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-        .love-signature .heart-icon {
-            animation: pulse 1s infinite;
-        }
-
-        /* زر تشغيل الأغنية */
-        .music-btn {
-            background: rgba(255, 105, 180, 0.2);
-            border: 1px solid #ff69b4;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 20px;
-            font-family: 'Cairo', sans-serif;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .music-btn:hover {
-            background: #ff69b4;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+        /* جعل الصورة الأخيرة تأخذ العرض كاملاً لشكل أرتب */
+        .gallery img:nth-child(7) {
+            grid-column: span 2;
         }
 
         /* القلوب المتحركة في الخلفية */
         .floating-heart {
-            position: absolute;
-            color: rgba(255, 105, 180, 0.6);
-            font-size: 20px;
-            user-select: none;
-            pointer-events: none;
-            animation: floatUp 4s linear infinite;
+            position: absolute; color: rgba(255, 105, 180, 0.5);
+            font-size: 20px; user-select: none; pointer-events: none;
+            animation: floatUp 4s linear infinite; z-index: 1;
         }
         @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) scale(0.5);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.2);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- شاشة إدخال الباسورد -->
+    <!-- شاشة الباسورد -->
     <div id="auth-screen">
         <div class="auth-box">
-            <h2>أدخل كلمة المرور للوصول</h2>
+            <h2>أدخل كلمة المرور للوصول ❤️</h2>
             <input type="password" id="pass-input" placeholder="كلمة المرور">
-            <button onclick="checkPassword()">دخول ❤️</button>
-            <div id="error-msg" class="error-msg">كلمة المرور غير صحيحة، جربي مجدداً</div>
+            <button onclick="checkPassword()">دخول</button>
         </div>
     </div>
 
     <!-- محتوى الموقع -->
     <div id="main-content">
-        <!-- الأسماء في الأعلى -->
-        <div class="header-names">
-            <span>محمود</span>
-            <span class="heart">❤️</span>
-            <span>نضوه</span>
-        </div>
-        <div class="daughter-name">وثمرة حبنا الغالية: ليال</div>
+        <h1>لحظاتنا الجميلة</h1>
 
         <!-- العداد الزمني -->
         <div class="counter-container">
@@ -273,74 +126,53 @@
             </div>
         </div>
 
-        <!-- بيت الشعر المؤلف خصيصاً -->
+        <!-- بيت الشعر -->
         <div class="poetry-box">
-            يا "نضوه" يا نور العين ويا سكن الفؤادِ<br>
-            بجنتكِ وصوت "ليال" تكتمل أمجادي<br>
-            ومحمود بهمس الحب يروي قصةً<br>
-            كتبها العشق في أطهر وأعذب بلادي.
+            يا ساكناً في القلبِ لا يمحوهُ البعدُ والزمنُ<br>
+            أنتَ الحياةُ التي في طيفِها أُفتتنُ<br>
+            حُبك كالنورِ في روحي وفي مُهجتي<br>
+            أنتَ الذي بكلِ نبضٍ في دمي تسكنُ.
         </div>
 
-        <!-- الخاتمة -->
-        <div class="footer-note">كل سنة و انتى منورة حياتى يا حياتى</div>
-        <div class="love-signature">
-            <span>بحبك</span> <span class="heart-icon">❤️</span>
+        <!-- ألبوم الصور (7 صور) -->
+        <div class="gallery">
+            <img src="رابط_صورة_1" alt="ذكريات">
+            <img src="رابط_صورة_2" alt="ذكريات">
+            <img src="رابط_صورة_3" alt="ذكريات">
+            <img src="رابط_صورة_4" alt="ذكريات">
+            <img src="رابط_صورة_5" alt="ذكريات">
+            <img src="رابط_صورة_6" alt="ذكريات">
+            <img src="رابط_صورة_7" alt="ذكريات">
         </div>
-
-        <!-- زر تشغيل الأغنية -->
-        <button class="music-btn" onclick="toggleMusic()">
-            <span>🎵 تشغيل أغنية: سرك إيه (إلياس الستة)</span>
-        </button>
-        
-        <!-- عنصر الصوت -->
-        <audio id="bg-music" loop>
-            <source src="" type="audio/mp3">
-        </audio>
     </div>
 
+    <!-- الأغنية -->
+    <audio id="bg-music" loop>
+        <source src="" type="audio/mp3">
+    </audio>
+
     <script>
-        // التحقق من الباسورد المطلوبة
         function checkPassword() {
             const pass = document.getElementById('pass-input').value;
             if (pass === '1892025') {
-                document.getElementById('auth-screen').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('auth-screen').style.display = 'none';
-                    document.getElementById('main-content').style.display = 'block';
-                    startHearts();
-                    startCounter();
-                }, 500);
+                document.getElementById('auth-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.getElementById('bg-music').play().catch(() => {});
+                startCounter();
+                startHearts();
             } else {
-                document.getElementById('error-msg').style.display = 'block';
+                alert('كلمة المرور غير صحيحة!');
             }
         }
 
-        // تشغيل وإيقاف الأغنية
-        let isPlaying = false;
-        function toggleMusic() {
-            const music = document.getElementById('bg-music');
-            if (!isPlaying) {
-                music.play().catch(() => {
-                    alert("عذراً، يرجى إضافة رابط صوت صحيح للأغنية لتشغيلها.");
-                });
-                isPlaying = true;
-            } else {
-                music.pause();
-                isPlaying = false;
-            }
-        }
-
-        // حساب العداد التلقائي من 18 سبتمبر 2025
+        // العداد الزمني التلقائي
         function startCounter() {
             const startDate = new Date('2025-09-18T00:00:00');
-            
             function update() {
                 const now = new Date();
                 const diff = now - startDate;
-                
                 const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                
                 document.getElementById('days-count').innerText = days >= 0 ? days : 0;
                 document.getElementById('hours-count').innerText = hours >= 0 ? hours : 0;
             }
@@ -348,21 +180,18 @@
             setInterval(update, 1000 * 60);
         }
 
-        // توليد القلوب المتحركة في الشاشة تلقائياً
+        // القلوب المتحركة
         function startHearts() {
             setInterval(() => {
                 const heart = document.createElement('div');
                 heart.classList.add('floating-heart');
                 heart.innerHTML = '❤️';
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
                 heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
                 document.body.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 6000);
-            }, 300);
+                setTimeout(() => { heart.remove(); }, 6000);
+            }, 400);
         }
     </script>
 </body>
